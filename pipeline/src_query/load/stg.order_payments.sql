@@ -1,0 +1,35 @@
+--
+--- Query for load data and handling new data (upsert) from db sources into staging schema in DWH
+--
+
+INSERT INTO stg.order_payments
+    (order_id, payment_sequential, payment_type, payment_installments, payment_value)
+    
+SELECT
+    order_id,
+    payment_sequential,
+    payment_type,
+    payment_installments,
+    payment_value
+
+FROM public.order_payments
+
+-- Handle new data
+ON CONFLICT(order_id, payment_sequential)
+DO UPDATE SET
+    payment_sequential = EXCLUDED.payment_sequential,
+    payment_type = EXCLUDED.payment_type,
+    payment_installments = EXCLUDED.payment_installments,
+    payment_value = EXCLUDED.payment_value,
+
+    -- Handle updated timestamp
+    updated_at = CASE WHEN
+                        stg.order_payments.payment_sequential <> EXCLUDED.payment_sequential
+                        OR stg.order_payments.payment_type <> EXCLUDED.payment_type
+                        OR stg.order_payments.payment_installments <> EXCLUDED.payment_installments
+                        OR stg.order_payments.payment_value <> EXCLUDED.payment_value
+                THEN
+                        CURRENT_TIMESTAMP
+                ELSE
+                        stg.order_payments.updated_at
+                END;
