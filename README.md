@@ -4,7 +4,7 @@
 
 Hi there!, Welcome to my project.
 
-**In this guide, I will share how I developed an ELT pipeline for an e-commerce business based on a study case**. For the full story about the study case and how I designed the data warehouse, you can check out my article on Medium here: [full-story]().
+**In this guide, I will share how I developed an ELT pipeline for an e-commerce business based on a study case**. For the full story about the study case and how I designed the data warehouse, you can check out my article on Medium here: [full-story](https://medium.com/@ricofebrian731/learning-data-engineering-designing-a-data-warehouse-and-building-an-elt-pipeline-for-e-commerce-1f6b77cdfc28).
 
 **In this repository, I’ll focus specifically on how I developed the ELT pipeline.**
 
