@@ -319,7 +319,11 @@ You can easily check the log file for any errors in your pipeline during develop
 
 - Error log
 
+![Error log](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/assets/log_failed.png)
+
 - Error task summary
+
+![Error task summary](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/assets/summary_failed.png)
 
 ---
 
@@ -383,6 +387,13 @@ You can easily check the log file for any errors in your pipeline during develop
 
 # Final Result
 
-## - Pipeline
-## - Summary
-## - Log
+## - Pipeline DAG Graph
+![Luigi DAG Graph](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/assets/dag_graph.png)
+
+## - Pipeline Summary
+
+![Luigi DAG Graph](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/assets/summary_success.png)
+
+## - Pipeline Log
+
+![Luigi DAG Graph](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/assets/log_success.png)
