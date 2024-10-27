@@ -85,7 +85,7 @@ Alright, let's begin!, Here's the step-by-step guide:
   pip install -r requirements.txt
   ```
   
-  > **You can install libraries as needed while developing the code. However, once complete, make sure to generate a requirements.txt file listing all dependencies**.
+**Note: You can install libraries as needed while developing the code. However, once complete, make sure to generate a _requirements.txt_ file listing all dependencies**.
 
 ## - **Create _.env_ file to store all credential information**
   
@@ -106,7 +106,7 @@ Alright, let's begin!, Here's the step-by-step guide:
 # Develop the ELT Code
 
 ## - Setup database
-  - Create a [_docker-compose.yml_](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/docker-compose.yml) file to set up both the data source and data warehouse databases.
+  - Create a [_docker-compose.yml_](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/docker-compose.yml) file to set up both the data source and data warehouse databases
   - Store database credentials in _.env_ file  
 
     ```
@@ -258,7 +258,7 @@ I developed each task separately to ensure everything function properly.
 
   - [Transform task](https://github.com/Rico-febrian/elt-dwh-olist-ecommerce/blob/main/pipeline/transform.py)
     - This task **pulls data from the Load task in the staging schema**, **transforms it**, and **loads it into the final schema** in the warehouse database
-    - This task output such as:
+    - This outputs include:
       - Task summary CSV
       - Log file
 
@@ -345,7 +345,7 @@ You can easily check the log file for any errors in your pipeline during develop
     touch SHELL_SCRIPT_NAME.sh
     ```
     ```
-    # In SHELL SCRIPT NAME.sh, write this:
+    # In SHELL_SCRIPT_NAME.sh, write this:
     
     #!/bin/bash
     
@@ -365,7 +365,7 @@ You can easily check the log file for any errors in your pipeline during develop
   - Make the script executable
     ```
     # In your shell script directory, run this
-    chmod +x <SHELL SCRIPT NAME>.sh
+    chmod +x SHELL_SCRIPT_NAME.sh
     ```
   - Set up cron job
     ```
@@ -376,11 +376,11 @@ You can easily check the log file for any errors in your pipeline during develop
     # In crontab editor
 
     # Set the schedule like this to run the pipeline EVERY HOUR
-    0 * * * * /PATH/TO/YOUR/SHELL/SCRIPT/<SHELL SCRIPT NAME>.sh
+    0 * * * * /PATH/TO/YOUR/SHELL/SCRIPT/SHELL_SCRIPT_NAME.sh
     ```
   - Or you can run the shell script manually
     ```
-    ./<SHELL SCRIPT NAME>.sh
+    ./SHELL_SCRIPT_NAME.sh
     ```
   
   ---
